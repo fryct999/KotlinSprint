@@ -11,5 +11,6 @@ fun main() {
 }
 
 fun formatString(value: Int): String {
-    return if (value <= 9) "0" + (value).toString() else value.toString()
+    val valueStr = value.toString()
+    return if (value <= 9) "0$valueStr" else valueStr
 }
