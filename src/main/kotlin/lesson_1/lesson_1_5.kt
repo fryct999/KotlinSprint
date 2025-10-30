@@ -1,16 +1,16 @@
 package org.example.lesson_1
 
+const val NUM_SECONDS = 60
+const val NUM_MINUTES = 60
+
 fun main() {
     val seconds = 6480
-    val secondsLeft = formatString(seconds % 60)
-    val minute = seconds / 60
-    val minuteLeft = formatString(minute % 60)
-    val hour = formatString(minute / 60)
+    val minute = seconds / NUM_SECONDS
+    val hour = minute / NUM_MINUTES
 
-    println("$hour:$minuteLeft:$secondsLeft")
-}
+    val secondsPrint = String.format("%02d", seconds % NUM_SECONDS)
+    val minutePrint = String.format("%02d", minute % NUM_MINUTES)
+    val hourPrint = String.format("%02d", hour)
 
-fun formatString(value: Int): String {
-    val valueStr = value.toString()
-    return if (value <= 9) "0$valueStr" else valueStr
+    println("$hourPrint:$minutePrint:$secondsPrint")
 }
