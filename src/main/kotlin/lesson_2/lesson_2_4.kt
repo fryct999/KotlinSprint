@@ -1,8 +1,10 @@
 package org.example.lesson_2
 
+const val MAX_PERCENT = 100
+
 fun main() {
     val buffMiningStrength = 20
-    val buffMiningPercent = buffMiningStrength.toFloat() / 100
+    val buffMiningPercent = buffMiningStrength.toDouble() / MAX_PERCENT
 
     val baseCrystalMining = 7
     val baseIronMining = 11
