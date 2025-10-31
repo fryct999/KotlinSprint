@@ -11,7 +11,7 @@ fun main() {
     val payrollAllStudents = countStudents * payrollStudent
     val allPayroll = payrollAllWorkers + payrollAllStudents
 
-    val averagePayroll = (allPayroll / (countWorkers + countStudents)).toInt()
+    val averagePayroll = allPayroll / (countWorkers + countStudents)
 
     println(payrollAllWorkers)
     println(allPayroll)
