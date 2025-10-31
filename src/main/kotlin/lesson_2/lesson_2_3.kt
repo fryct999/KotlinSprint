@@ -11,19 +11,13 @@ fun main() {
     println(calculatingArrivalTime(startHour, startMinute, wayTime))
 }
 
-fun calculatingArrivalTime(startHour: Int, startMinute: Int, wayTime: Int ) : String {
-    var hoursWay = wayTime / MINUTES_PER_HOUR
-    val minutesWayLeft = wayTime % MINUTES_PER_HOUR
-
-    var arrivalMinute = startMinute + minutesWayLeft
-
-    if (arrivalMinute >= 60) {
-        arrivalMinute -= 60
-        hoursWay += 1
-    }
+fun calculatingArrivalTime(startHour: Int, startMinute: Int, wayTime: Int): String {
+    val minutesNum = startMinute + wayTime
+    val minutesWayLeft = minutesNum % MINUTES_PER_HOUR
+    val hoursWay = minutesNum / MINUTES_PER_HOUR
 
     var arrivalHour = startHour + hoursWay
     arrivalHour = if (arrivalHour >= HOUR_PER_DAY) arrivalHour - HOUR_PER_DAY else arrivalHour
 
-    return String.format("%02d", arrivalHour) + ":" + String.format("%02d", arrivalMinute)
+    return "%02d:%02d".format(arrivalHour, minutesWayLeft)
 }
