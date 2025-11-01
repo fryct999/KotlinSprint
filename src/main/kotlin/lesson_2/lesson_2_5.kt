@@ -2,7 +2,7 @@ package org.example.lesson_2
 
 import kotlin.math.pow
 
-const val MAX_PERCENT = 100
+//const val MAX_PERCENT = 100
 
 fun main() {
     val deposit = 70000
