@@ -8,10 +8,10 @@ fun main() {
 
     var cargoWeight = 20
     var cargoVolume = 80
-    println(String.format(printMsg, cargoWeight, cargoVolume, cargoWeight > minWeight && cargoWeight <= maxWeight && cargoVolume < maxVolume))
+    println(printMsg.format(cargoWeight, cargoVolume, cargoWeight > minWeight && cargoWeight <= maxWeight && cargoVolume < maxVolume))
 
     cargoWeight = 50
     cargoVolume = 100
-    println(String.format(printMsg, cargoWeight, cargoVolume, cargoWeight > minWeight && cargoWeight <= maxWeight && cargoVolume < maxVolume))
+    println(printMsg.format(cargoWeight, cargoVolume, cargoWeight > minWeight && cargoWeight <= maxWeight && cargoVolume < maxVolume))
 }
 
