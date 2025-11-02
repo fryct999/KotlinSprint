@@ -2,15 +2,13 @@ package org.example.lesson_3
 
 fun main() {
     val name = "Tatyana"
-    val oldLastName = "Andreeva"
+    var lastName = "Andreeva"
     val patronymic = "Sergeevna"
 
-    val newLastName = "Sidorova"
-    val ageOfChangeLastName = 22
-
     var ageOfRequest = 20
-    println("${if (ageOfRequest < ageOfChangeLastName) oldLastName else newLastName} $name $patronymic, $ageOfRequest")
+    println("$lastName $name $patronymic, $ageOfRequest")
 
-    ageOfRequest = ageOfChangeLastName
-    println("${if (ageOfRequest < ageOfChangeLastName) oldLastName else newLastName} $name $patronymic, $ageOfRequest")
+    lastName = "Sidorova"
+    ageOfRequest = 22
+    println("$lastName $name $patronymic, $ageOfRequest")
 }
