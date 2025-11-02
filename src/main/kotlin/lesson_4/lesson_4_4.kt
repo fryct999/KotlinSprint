@@ -10,12 +10,11 @@ fun main() {
 
 fun getTodayExercises(dayNum : Int) : String {
     val armsAndAbsTraining = dayNum % 2 != 0
-    val legsAndBackTraining = dayNum % 2 == 0
 
     val workOutMsg = """
         |Exercises for the arms: $armsAndAbsTraining
-        |Exercises for the legs: $legsAndBackTraining
-        |Exercises for the back: $legsAndBackTraining
+        |Exercises for the legs: ${!armsAndAbsTraining}
+        |Exercises for the back: ${!armsAndAbsTraining}
         |Exercises for the abs: $armsAndAbsTraining
     """.trimMargin()
 
