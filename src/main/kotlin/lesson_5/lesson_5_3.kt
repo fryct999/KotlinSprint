@@ -6,15 +6,10 @@ fun main() {
     val winNums = listOf(firstWinNum, secondWinNum)
 
     println("Enter the first number:")
-    val firstNum: Int? = readlnOrNull()?.toIntOrNull()
+    val firstNum = readln()?.toInt() ?: 0
 
     println("Enter the second number:")
-    val secondNum: Int? = readlnOrNull()?.toIntOrNull()
-
-    if (firstNum == null || secondNum == null) {
-        println("Incorrect data has been entered!")
-        return
-    }
+    val secondNum = readln()?.toInt() ?: 0
 
     val resultMsg = when {
         firstNum in winNums && secondNum in winNums -> "Congratulations! You have won the grand prize!"
