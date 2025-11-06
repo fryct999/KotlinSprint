@@ -12,18 +12,13 @@ fun main() {
     val userNumsList = mutableListOf<Int>()
 
     println("Enter the first number:")
-    val firstNum: Int? = readlnOrNull()?.toIntOrNull()
+    val firstNum = readLine()?.toInt() ?: 0
 
     println("Enter the second number:")
-    val secondNum: Int? = readlnOrNull()?.toIntOrNull()
+    val secondNum = readLine()?.toInt() ?: 0
 
     println("Enter the third number:")
-    val thirdNum: Int? = readlnOrNull()?.toIntOrNull()
-
-    if (firstNum == null || secondNum == null || thirdNum == null) {
-        println("Incorrect data has been entered!")
-        return
-    }
+    val thirdNum = readLine()?.toInt() ?: 0
 
     userNumsList.addAll(listOf(firstNum, secondNum, thirdNum))
 
