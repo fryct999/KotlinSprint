@@ -8,10 +8,10 @@ fun main() {
 
     var counter = seconds
 
-    do {
-        println("Left ${counter--} sec.")
+    while (counter > 0) {
+        println("Left second: ${counter--}")
         Thread.sleep(MLSEC_IN_SEC)
-    } while (counter > 0)
+    }
 
-    println("$seconds seconds have passed.")
+    println("Out of time.")
 }
