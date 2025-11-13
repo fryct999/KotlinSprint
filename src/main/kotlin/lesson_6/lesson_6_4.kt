@@ -10,7 +10,7 @@ fun main() {
 
     while (tryCount > 0) {
         println("Enter num:")
-        val enteredNum = readln()?.toIntOrNull() ?: 0
+        val enteredNum = readln().toInt()
 
         if(enteredNum == num) {
             println("It was a great game!")
