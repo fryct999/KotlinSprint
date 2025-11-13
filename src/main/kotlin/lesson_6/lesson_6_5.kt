@@ -1,27 +1,29 @@
 package org.example.lesson_6
 
+const val MIN_INT_DIAPASON = 0
+const val MAX_INT_DIAPASON = 9
+
 fun main() {
-    println("Create user name:")
-    val userName = readln()
+    val range = MIN_INT_DIAPASON .. MAX_INT_DIAPASON
+    var tryCount = 3
+    var solved = false
 
-    println("Create password:")
-    val password = readln()
+    while (tryCount > 0 && solved == false) {
+        val firstNum = range.random()
+        val secNum = range.random()
+        val sum = firstNum + secNum
 
-    println("User created success.")
+        println("To access the site, solve the example $firstNum+$secNum=?")
+        val enterNum = readln()?.toIntOrNull() ?: -1
 
-    println("Enter user name:")
-    var enteredUserName = readln()
-
-    println("Enter password:")
-    var enteredPassword = readln()
-
-    while (enteredUserName != userName || enteredPassword != password) {
-        println("The login or password was entered incorrect")
-
-        println("Enter user name:")
-        enteredUserName = readln()
-
-        println("Enter password:")
-        enteredPassword = readln()
+        solved = enterNum == sum
+        tryCount--
     }
+
+    val msg = when(solved) {
+        true -> "Access accept!"
+        else -> "Access is denied!"
+    }
+
+    println(msg)
 }
