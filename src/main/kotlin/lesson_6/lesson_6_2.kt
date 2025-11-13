@@ -4,14 +4,8 @@ const val MLSEC_IN_SEC : Long = 1000
 
 fun main() {
     println("Enter seconds:")
-    val seconds = readLine()?.toIntOrNull() ?: 0
+    val seconds = readln().toInt()
 
-    var counter = seconds
-
-    do {
-        println("Left ${counter--} sec.")
-        Thread.sleep(MLSEC_IN_SEC)
-    } while (counter > 0)
-
+    Thread.sleep(MLSEC_IN_SEC * seconds)
     println("$seconds seconds have passed.")
 }
