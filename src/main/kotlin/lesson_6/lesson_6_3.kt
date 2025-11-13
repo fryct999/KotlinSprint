@@ -4,7 +4,7 @@ const val MLSEC_IN_SEC : Long = 1000
 
 fun main() {
     println("Enter seconds:")
-    val seconds = readLine()?.toIntOrNull() ?: 0
+    val seconds = readln().toInt()
 
     var counter = seconds
 
