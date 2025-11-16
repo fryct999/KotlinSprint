@@ -6,10 +6,6 @@ fun main() {
     println("Enter the name of the ingredient:")
     val userIngredient = readln()
 
-    val msg = when(userIngredient in arrayOfIngredients) {
-        true -> "The ingredient $userIngredient is in the recipe."
-        else -> "There's no such ingredient in the recipe."
-    }
-
-    println(msg)
+    if (userIngredient in arrayOfIngredients) println("The ingredient $userIngredient is in the recipe.")
+    else println("There's no such ingredient in the recipe.")
 }
