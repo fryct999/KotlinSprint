@@ -14,11 +14,11 @@ fun main() {
 
 fun passwordGenerator(passLength: Int) : String {
     val numRange = 0.. 9
-    val charList = arrayOf('!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ' ')
+    val charRange = ' '..'/'
     var pass = ""
 
     for (i in 0 until  passLength) {
-        pass += if (i % 2 == 0) numRange.random() else charList.random()
+        pass += if (i % 2 == 0) numRange.random() else charRange.random()
     }
 
     return pass
