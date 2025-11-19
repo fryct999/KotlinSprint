@@ -1,5 +1,7 @@
 package org.example.lesson_11.tutorial
 
+import org.example.lesson_11_12.tutorial.Ingredient
+
 fun main() {
     val dish1: Dish = Dish(
         id = 1,
@@ -15,6 +17,12 @@ fun main() {
         listOf("Water", "Chicken", "Salt", "Pepper"),
     )
 
+    val ingredient1 = Ingredient("potato", 100, 1)
+    val ingredient2 = Ingredient("carrot", 50, 1, true)
+
+    println(ingredient1.name)
+    println(ingredient2.name)
+
 //    println(dish1.name)
 //    println(dish1.ingredients)
 //    println(dish1.inFavorites)
@@ -28,18 +36,18 @@ fun main() {
 //    println(dish1.category)
 //    println(dish2.inFavorites)
 
-    println("Action for Eggs dish")
-    dish1.addToFavorites()
-    println(dish1.inFavorites)
-    dish1.startCooking()
-
-    println()
-
-    println("Action for Soup dish")
-    dish2.addToFavorites()
-    println(dish2.inFavorites)
-    val ingredientsForSoup = dish2.downloadIngredients()
-    println(ingredientsForSoup)
-    dish2.removeFromFavorites()
-    println(dish2.inFavorites)
+//    println("Action for Eggs dish")
+//    dish1.addToFavorites()
+//    println(dish1.inFavorites)
+//    dish1.startCooking()
+//
+//    println()
+//
+//    println("Action for Soup dish")
+//    dish2.addToFavorites()
+//    println(dish2.inFavorites)
+//    val ingredientsForSoup = dish2.downloadIngredients()
+//    println(ingredientsForSoup)
+//    dish2.removeFromFavorites()
+//    println(dish2.inFavorites)
 }
