@@ -1,5 +1,26 @@
 package org.example.lesson_11_12
 
-fun main() {
+class DailyMeteo() {
+    var nightTemperature = 0
+    var dayTemperature = 0
+    var haveRainfall = false
 
+    fun printData() {
+        println(String.format("Today night temperature: $nightTemperature, day temperature: $dayTemperature, %s", if (haveRainfall)
+        "there will be precipitation today" else "no precipitation today"))
+    }
+}
+
+fun main() {
+    val day1 = DailyMeteo()
+    day1.nightTemperature = -10
+    day1.dayTemperature = 11
+    day1.haveRainfall = true
+
+    val day2 = DailyMeteo()
+    day2.nightTemperature = -8
+    day2.dayTemperature = 7
+
+    day1.printData()
+    day2.printData()
 }
