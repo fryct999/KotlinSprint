@@ -9,10 +9,12 @@ class DailyMeteo3() {
 
     fun printData() {
         println(String.format("Today night temperature: ${nightTemperature - KELVIN_COEFFICIENT}, day temperature: ${dayTemperature - KELVIN_COEFFICIENT}, %s",
-            if (haveRainfall) "there will be precipitation today" else "no precipitation today"))
+                if (haveRainfall) "there will be precipitation today." else "no precipitation today."))
     }
 
-
+    init {
+        printData()
+    }
 }
 
 fun main() {
