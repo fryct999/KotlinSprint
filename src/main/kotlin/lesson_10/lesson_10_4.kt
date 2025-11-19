@@ -18,8 +18,8 @@ fun main() {
 }
 
 fun playGameRound() : Boolean {
-    val humanDiceNum = getDiceValue()
-    val botDiceNum = getDiceValue()
+    val humanDiceNum = getDiceValues()
+    val botDiceNum = getDiceValues()
 
     println("Human Dice Roll: $humanDiceNum")
     println("Bot Dice Roll: $botDiceNum")
@@ -40,4 +40,4 @@ fun playGameRound() : Boolean {
     }
 }
 
-fun getDiceValue() : Int = (1..6).random()
+fun getDiceValues() : Int = (1..6).random()
