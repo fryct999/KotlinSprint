@@ -1,24 +1,29 @@
 package org.example.lesson_11_12
 
-const val KELVIN_COEFFICIENT = 273.15
+import kotlin.random.Random
 
-class DailyMeteo5() {
-    var nightTemperature: Int = 0
-    var dayTemperature: Int = 0
-    var haveRainfall = false
-
-    fun printData() {
-        println(String.format("Today night temperature: ${nightTemperature - KELVIN_COEFFICIENT}, day temperature: ${dayTemperature - KELVIN_COEFFICIENT}, %s",
-            if (haveRainfall) "there will be precipitation today." else "no precipitation today."))
-    }
-
-    init {
-        printData()
-    }
-}
+class DailyMeteo5(
+    var nightTemperature: Int,
+    var dayTemperature: Int,
+    var haveRainfall: Boolean
+)
 
 fun main() {
-    val day1 = DailyMeteo5()
-    day1.nightTemperature = 230
-    day1.dayTemperature = 260
+    val dayList = mutableListOf<DailyMeteo5>()
+    val temperatureRange = -10 .. 30
+
+    for (i in 1..30) {
+        dayList.add(DailyMeteo5(temperatureRange.random(), temperatureRange.random(), Random.nextBoolean()))
+    }
+
+    var dayWithRainFall = 0
+    val nightTemperatureList = mutableListOf<Int>()
+    val dayTemperatureList = dayList.map {
+        nightTemperatureList.add(it.dayTemperature)
+        if (it.haveRainfall) dayWithRainFall += 1
+        it.nightTemperature
+    }
+
+    println(String.format("Average daytime temperature: %.2f. Average temperature at night: %.2f. Days with precipitation: %d.",
+        dayTemperatureList.average(), nightTemperatureList.average(), dayWithRainFall))
 }
