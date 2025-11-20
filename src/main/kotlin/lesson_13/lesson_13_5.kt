@@ -11,5 +11,14 @@ class Contact4(
 }
 
 fun main() {
+    var number: Long?
+
+    println("Enter phone number:")
+    try {
+        number = readLine()?.toLong()
+    } catch (e: Exception) {
+        println(e.toString())
+    }
+
 
 }
