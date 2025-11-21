@@ -1,22 +1,24 @@
 package org.example.lesson_11_12
 
-const val KELVIN_COEFFICIENT = 273.15
+const val KELVIN_COEFFICIENT = 273
 
-class DailyMeteo3() {
-    var nightTemperature: Int = 0
-    var dayTemperature: Int = 0
-    var haveRainfall = false
+class DailyMeteo3(
+    _nightTemperature: Int,
+    _dayTemperature: Int,
+    _hasRainfall: Boolean,
+) {
+    var nightTemperature: Int = _nightTemperature - KELVIN_COEFFICIENT
+    var dayTemperature: Int = _dayTemperature - KELVIN_COEFFICIENT
+    var hasRainfall = _hasRainfall
 
     fun printData() {
-        println(String.format("Today night temperature: ${nightTemperature - KELVIN_COEFFICIENT}, day temperature: ${dayTemperature - KELVIN_COEFFICIENT}, %s",
-            if (haveRainfall) "there will be precipitation today" else "no precipitation today"))
+        println("Today night temperature: $nightTemperature, day temperature: $dayTemperature, " +
+                if (hasRainfall) "there will be precipitation today" else "no precipitation today"
+        )
     }
 }
 
 fun main() {
-    val day1 = DailyMeteo3()
-    day1.nightTemperature = 230
-    day1.dayTemperature = 260
-
+    val day1 = DailyMeteo3(_nightTemperature = 230, _dayTemperature = 260, _hasRainfall = false)
     day1.printData()
 }
