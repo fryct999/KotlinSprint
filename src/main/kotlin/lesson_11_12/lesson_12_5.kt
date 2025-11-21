@@ -3,9 +3,9 @@ package org.example.lesson_11_12
 import kotlin.random.Random
 
 class DailyMeteo5(
-    var nightTemperature: Int,
-    var dayTemperature: Int,
-    var haveRainfall: Boolean
+    val nightTemperature: Int,
+    val dayTemperature: Int,
+    val hasRainfall: Boolean
 )
 
 fun main() {
@@ -16,14 +16,9 @@ fun main() {
         dayList.add(DailyMeteo5(temperatureRange.random(), temperatureRange.random(), Random.nextBoolean()))
     }
 
-    var dayWithRainFall = 0
-    val nightTemperatureList = mutableListOf<Int>()
-    val dayTemperatureList = dayList.map {
-        nightTemperatureList.add(it.dayTemperature)
-        if (it.haveRainfall) dayWithRainFall += 1
-        it.nightTemperature
-    }
+    val dayWithRainFall = dayList.filter { it.hasRainfall == true }
+    val nightTemperatureList = "%.2f".format(dayList.map { it.dayTemperature }.average())
+    val dayTemperatureList = "%.2f".format(dayList.map { it.nightTemperature }.average())
 
-    println(String.format("Average daytime temperature: %.2f. Average temperature at night: %.2f. Days with precipitation: %d.",
-        dayTemperatureList.average(), nightTemperatureList.average(), dayWithRainFall))
+    println("Average daytime temperature: $nightTemperatureList. Average temperature at night: $dayTemperatureList. Days with precipitation: ${dayWithRainFall.size}.")
 }
