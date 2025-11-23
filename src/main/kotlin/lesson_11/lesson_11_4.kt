@@ -1,18 +1,19 @@
 package org.example.lesson_11
 
 class Category(
-    val image: Any,
+    val image: String,
     val name: String,
     val descriptor: String,
-    val inFavorite: Boolean = false,
+    val recipeList: MutableList<Recipe>,
+    var inFavorite: Boolean = false,
 )
 
 class Recipe(
-    val image: Any,
+    val image: String,
     val name: String,
     val ingredient: Map<Ingredient, Int>,
     val instruction: String,
-    val inFavorite: Boolean = false,
+    var inFavorite: Boolean = false,
 )
 
 class Ingredient(
