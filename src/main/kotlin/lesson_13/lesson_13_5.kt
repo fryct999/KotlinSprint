@@ -17,7 +17,7 @@ fun main() {
     try {
         number = readLine()?.toLong()
     } catch (e: Exception) {
-        println(e.toString())
+        println(e::class.simpleName)
     }
 
 
