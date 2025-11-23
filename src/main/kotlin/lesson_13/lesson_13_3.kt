@@ -19,7 +19,6 @@ fun main() {
         Contact3(79999999995, "Po", "IKEA"),
     )
 
-    phoneBook.forEach {
-        if (it.company != null) println(it.company)
-    }
+    val companyList = phoneBook.mapNotNull { it.company }
+    println(companyList)
 }
