@@ -1,4 +1,4 @@
-package org.example.lesson_14
+package org.example.lesson_14.tutorial
 
 open class Spaceship(
     val name: String,

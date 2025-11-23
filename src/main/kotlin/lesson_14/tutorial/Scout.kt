@@ -1,4 +1,4 @@
-package org.example.lesson_14
+package org.example.lesson_14.tutorial
 
 class Scout(
     name: String,
