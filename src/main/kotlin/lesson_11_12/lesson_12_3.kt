@@ -7,14 +7,15 @@ class DailyMeteo3(
     _dayTemperature: Int,
     _hasRainfall: Boolean,
 ) {
-    var nightTemperature: Int = _nightTemperature - KELVIN_COEFFICIENT
-    var dayTemperature: Int = _dayTemperature - KELVIN_COEFFICIENT
-    var hasRainfall = _hasRainfall
+    val nightTemperature: Int = _nightTemperature - KELVIN_COEFFICIENT
+    val dayTemperature: Int = _dayTemperature - KELVIN_COEFFICIENT
+    val hasRainfall = _hasRainfall
 
     fun printData() {
-        println("Today night temperature: $nightTemperature, day temperature: $dayTemperature, " +
-                if (hasRainfall) "there will be precipitation today" else "no precipitation today"
-        )
+        val rainfallString = if (hasRainfall) "there will be precipitation today"
+        else "no precipitation today"
+
+        println("Today night temperature: $nightTemperature, day temperature: $dayTemperature, $rainfallString.")
     }
 }
 
