@@ -12,13 +12,16 @@ class Contact4(
 
 fun main() {
     var addNumbers = true
+    val positiveAnswer = "yes"
     val negativeAnswer = "no"
 
     val phoneBook = mutableListOf<Contact4>()
 
     while (addNumbers) {
-        println("Do you want to add a new contact? (yes/no)")
-        if (negativeAnswer == readLine()) {
+        println("Do you want to add a new contact? ($positiveAnswer/$negativeAnswer)")
+        val answer = readLine()?.lowercase()
+
+        if (negativeAnswer == answer) {
             addNumbers = false
             break
         }
