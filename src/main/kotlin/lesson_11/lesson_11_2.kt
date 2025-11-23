@@ -5,7 +5,7 @@ class User2(
     val name: String,
     var password: String,
     val email: String,
-    var bio: String = "",
+    var bio: String? = null,
 ) {
     fun changePassword() {
         println("Enter old password:")
@@ -21,7 +21,7 @@ class User2(
 
     fun addDataInBio() {
         println("Add extra data:")
-        bio += readln()
+        bio = if (bio == null) readln() else bio + readln()
     }
 
     fun getUserData() {
