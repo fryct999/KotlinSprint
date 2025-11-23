@@ -7,9 +7,9 @@ class DailyMeteo4(
     _dayTemperature: Int,
     _hasRainfall: Boolean,
 ) {
-    var nightTemperature: Int = _nightTemperature - KELVIN_COEFFICIENT
-    var dayTemperature: Int = _dayTemperature - KELVIN_COEFFICIENT
-    var hasRainfall = _hasRainfall
+    val nightTemperature: Int = _nightTemperature - KELVIN_COEFFICIENT
+    val dayTemperature: Int = _dayTemperature - KELVIN_COEFFICIENT
+    val hasRainfall = _hasRainfall
 
     fun printData() {
         println("Today night temperature: $nightTemperature, day temperature: $dayTemperature, " +
@@ -24,5 +24,4 @@ class DailyMeteo4(
 
 fun main() {
     val day1 = DailyMeteo4(_nightTemperature = 230, _dayTemperature = 260, _hasRainfall = false)
-    //day1.printData()
 }
