@@ -6,8 +6,10 @@ class DailyMeteo2(
     val hasRainfall: Boolean,
 ) {
     fun printData() {
-        println("Today night temperature: $nightTemperature, day temperature: $dayTemperature, ${if (hasRainfall)
-            "there will be precipitation today" else "no precipitation today"}")
+        val rainfallString = if (hasRainfall) "there will be precipitation today"
+        else "no precipitation today"
+
+        println("Today night temperature: $nightTemperature, day temperature: $dayTemperature, $rainfallString.")
     }
 }
 
