@@ -1,5 +1,10 @@
 package org.example.lesson_16
 
-fun main() {
+class Dice {
+    private val diceRange = 1..6
+    private val value = diceRange.random()
 
+    fun getDiceValue() {
+        println(value)
+    }
 }
