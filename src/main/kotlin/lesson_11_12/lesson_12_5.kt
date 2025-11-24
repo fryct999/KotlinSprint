@@ -20,7 +20,7 @@ fun main() {
     val dayTemperatureList = "%.2f".format(dayList.map { it.dayTemperature }.average())
     val nightTemperatureList = "%.2f".format(dayList.map { it.nightTemperature }.average())
 
-    println("Average daytime temperature: $nightTemperatureList. Average temperature at night: $dayTemperatureList. " +
+    println("Average daytime temperature: $dayTemperatureList. Average temperature at night: $nightTemperatureList. " +
                 "Days with precipitation: ${dayWithRainFall.size}."
     )
 }
