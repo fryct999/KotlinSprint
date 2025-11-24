@@ -19,7 +19,7 @@ fun main() {
 
     while (addNumbers) {
         println("Do you want to add a new contact? ($positiveAnswer/$negativeAnswer)")
-        val answer = readLine()?.lowercase()
+        val answer = readln().lowercase()
 
         if (negativeAnswer == answer) {
             addNumbers = false
