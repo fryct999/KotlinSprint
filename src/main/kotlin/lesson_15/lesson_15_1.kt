@@ -1,50 +1,50 @@
 package org.example.lesson_15
 
 interface FlyMovable {
-    fun startMove() {
-        println("Began to climb.")
+    fun startFly(name: String) {
+        println("$name began to climb.")
     }
 
-    fun endMove() {
-        println("Began to descend.")
+    fun endFly(name: String) {
+        println("$name began to descend.")
     }
 }
 
 interface SwimMovable {
-    fun startMove() {
-        println("Started diving.")
+    fun startSwim(name: String) {
+        println("$name started diving.")
     }
 
-    fun endMove() {
-        println("Rise to the surface.")
+    fun endSwim(name: String) {
+        println("$name rise to the surface.")
     }
 }
 
 abstract class Animal {
     abstract val name: String
-    abstract fun movement()
-}
 
-class FlyAnimal(override val name : String) : Animal(), FlyMovable {
-    override fun movement() {
-        startMove()
-        endMove()
+    fun printMovementInfo() {
+        val flyAnimal = this is FlyMovable
+        val swimAnimal = this is SwimMovable
+
+        when {
+            flyAnimal && swimAnimal -> println("$name can swim and fly.")
+            flyAnimal -> println("$name can only fly.")
+            swimAnimal -> println("$name can only swim.")
+        }
     }
 }
 
-class SwimAnimal(override val name : String) : Animal(), SwimMovable {
-    override fun movement() {
-        startMove()
-        endMove()
-    }
-}
+class Caras(override val name: String) : Animal(), SwimMovable
+class Chaika(override val name: String) : Animal(), FlyMovable
+class Duck(override val name: String) : Animal(), FlyMovable, SwimMovable
 
 fun main() {
-    val caras = SwimAnimal("Caras")
-    val chaika = FlyAnimal("Chaika")
-    val duck = FlyAnimal("Duck")
+    val caras = Caras("Caras")
+    val chaika = Chaika("Chaika")
+    val duck = Duck("Duck")
 
-    caras.movement()
-    chaika.movement()
-    duck.movement()
+    caras.printMovementInfo()
+    chaika.printMovementInfo()
+    duck.printMovementInfo()
 }
