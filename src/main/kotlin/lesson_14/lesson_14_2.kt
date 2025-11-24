@@ -1,11 +1,11 @@
 package org.example.lesson_14
 
 open class LinerShip(
-    val name: String,
-    val speed: Int,
-    val cargoVolume: Int = 0,
-    val passengerCount: Int = 0,
-    val canIceBreaking: Boolean = false,
+    open val name: String,
+    open val speed: Int,
+    open val cargoVolume: Int = 0,
+    open val passengerCount: Int = 0,
+    open val canIceBreaking: Boolean = false,
 ) {
     fun printShipData() {
         val iceString = if (canIceBreaking) "can break ice" else "can't break the ice"
@@ -14,7 +14,7 @@ open class LinerShip(
                 "The ship accommodates $passengerCount passengers. The ship $iceString.")
     }
 
-    open fun loading() {
+    open fun load() {
         println("$name extends the horizontal ramp.")
     }
 }
@@ -22,9 +22,9 @@ open class LinerShip(
 class IndustrialShip(
     name: String,
     speed: Int,
-    cargoVolume: Int,
-) : LinerShip(name, speed, cargoVolume) {
-    override fun loading() {
+    override val cargoVolume: Int,
+) : LinerShip(name, speed) {
+    override fun load() {
         println("$name activates the loading crane.")
     }
 }
@@ -32,10 +32,10 @@ class IndustrialShip(
 class IcebreakerShip(
     name: String,
     speed: Int,
-    cargoVolume: Int,
-    canIceBreaking: Boolean = true,
-) : LinerShip(name, speed, cargoVolume, canIceBreaking = canIceBreaking) {
-    override fun loading() {
+    override val  cargoVolume: Int,
+    override val  canIceBreaking: Boolean = true,
+) : LinerShip(name, speed) {
+    override fun load() {
         println("$name opens the gate from the back.")
     }
 }
