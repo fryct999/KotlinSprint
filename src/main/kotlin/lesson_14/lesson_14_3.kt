@@ -6,19 +6,19 @@ import kotlin.math.pow
 abstract class Figure(
     val color: String,
 ) {
-    abstract fun Perimeter(): Double
-    abstract fun Area(): Double
+    abstract fun perimeter(): Double
+    abstract fun area(): Double
 }
 
 class Circle(
     color: String,
     val radius: Double,
 ) : Figure(color) {
-    override fun Area(): Double {
+    override fun area(): Double {
         return radius.pow(2) * PI
     }
 
-    override fun Perimeter(): Double {
+    override fun perimeter(): Double {
         return 2 * PI * radius
     }
 }
@@ -28,11 +28,11 @@ class Rectangle(
     val height: Double,
     val weight: Double,
 ) : Figure(color) {
-    override fun Area(): Double {
+    override fun area(): Double {
         return height * weight
     }
 
-    override fun Perimeter(): Double {
+    override fun perimeter(): Double {
         return 2 * (height + weight)
     }
 }
@@ -48,14 +48,14 @@ fun main() {
         Rectangle(color = whiteColor, weight = 20.0, height = 25.0),
     )
 
-    var blackFigurePerimeterSum = 0.0
-    var whiteFigureAreaSum = 0.0
+    val blackFigure = figureList.filter { it.color == blackColor }
+    val whiteFigure = figureList.filter { it.color == whiteColor }
 
-    figureList.forEach {
-        if (it.color == blackColor) blackFigurePerimeterSum += it.Perimeter()
-        else whiteFigureAreaSum += it.Area()
-    }
+    val blackFigurePerimeterSum = blackFigure.sumOf { it.perimeter() }
+    val whiteFigureAreaSum = whiteFigure.sumOf { it.area() }
 
-    println("The sum of the perimeters of the black shapes: ${"%.2f".format(blackFigurePerimeterSum)}, " +
-            "The sum of the areas of the white pieces: ${"%.2f".format(whiteFigureAreaSum)}.")
+    println(
+        "The sum of the perimeters of the black shapes: ${"%.2f".format(blackFigurePerimeterSum)}, " +
+                "The sum of the areas of the white pieces: ${"%.2f".format(whiteFigureAreaSum)}."
+    )
 }
