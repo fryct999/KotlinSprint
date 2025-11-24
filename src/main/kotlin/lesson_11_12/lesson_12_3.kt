@@ -1,14 +1,14 @@
 package org.example.lesson_11_12
 
-const val KELVIN_COEFFICIENT = 273
+const val KELVIN_COEFFICIENT_2 = 273
 
 class DailyMeteo3(
     _nightTemperature: Int,
     _dayTemperature: Int,
     _hasRainfall: Boolean,
 ) {
-    val nightTemperature: Int = _nightTemperature - KELVIN_COEFFICIENT
-    val dayTemperature: Int = _dayTemperature - KELVIN_COEFFICIENT
+    val nightTemperature: Int = _nightTemperature - KELVIN_COEFFICIENT_2
+    val dayTemperature: Int = _dayTemperature - KELVIN_COEFFICIENT_2
     val hasRainfall = _hasRainfall
 
     fun printData() {
