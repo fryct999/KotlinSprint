@@ -2,16 +2,18 @@ package org.example.lesson_14
 
 open class LinerShip(
     open val name: String,
-    open val speed: Int,
-    open val cargoVolume: Int = 0,
-    open val passengerCount: Int = 0,
+    open val speed: Int = 150,
+    open val passengerCount: Int = 300,
+    open val cargoVolume: Int = 1000,
     open val canIceBreaking: Boolean = false,
 ) {
     fun printShipData() {
         val iceString = if (canIceBreaking) "can break ice" else "can't break the ice"
 
-        println("Ship name: $name. Max ship speed: $speed. The ship holds $cargoVolume tons of cargo." +
-                "The ship accommodates $passengerCount passengers. The ship $iceString.")
+        println(
+            "Ship name: $name. Max ship speed: $speed. The ship holds $cargoVolume tons of cargo." +
+                    "The ship accommodates $passengerCount passengers. The ship $iceString."
+        )
     }
 
     open fun load() {
@@ -20,30 +22,36 @@ open class LinerShip(
 }
 
 class IndustrialShip(
-    name: String,
-    speed: Int,
-    override val cargoVolume: Int,
-) : LinerShip(name, speed) {
+    override val name: String
+) : LinerShip(
+    name = name,
+    speed = 100,
+    passengerCount = 100,
+    cargoVolume = 5000,
+) {
     override fun load() {
         println("$name activates the loading crane.")
     }
 }
 
 class IcebreakerShip(
-    name: String,
-    speed: Int,
-    override val  cargoVolume: Int,
-    override val  canIceBreaking: Boolean = true,
-) : LinerShip(name, speed) {
+    override val name: String
+) : LinerShip(
+    name = name,
+    speed = 50,
+    passengerCount = 100,
+    cargoVolume = 500,
+    canIceBreaking = true,
+) {
     override fun load() {
         println("$name opens the gate from the back.")
     }
 }
 
 fun main() {
-    val liner1 = LinerShip(name = "Liner1", speed = 500, cargoVolume = 150, passengerCount = 300)
-    val industrial1 = IndustrialShip(name = "Industrial1", speed = 320, cargoVolume = 500)
-    val icebreakerShip1 = IcebreakerShip(name = "iceBreaker1", speed = 300, cargoVolume = 100)
+    val liner1 = LinerShip(name = "Liner1")
+    val industrial1 = IndustrialShip(name = "Industrial1")
+    val icebreakerShip1 = IcebreakerShip(name = "iceBreaker1")
 
     liner1.printShipData()
     println()
