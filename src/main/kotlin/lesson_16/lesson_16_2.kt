@@ -2,17 +2,18 @@ package org.example.lesson_16
 
 import kotlin.math.pow
 
-class Circle(
-    protected val radius: Double,
-) {
-    private val pi = 3.14
+private const val PI_NUM = 3.14
 
-    fun getArea() : Double {
-        return pi * radius.pow(2)
+class Circle(
+    private val radius: Double,
+) {
+
+    fun getArea(): Double {
+        return PI_NUM * radius.pow(2)
     }
 
-    fun getLength() : Double {
-        return 2 * pi * radius
+    fun getLength(): Double {
+        return 2 * PI_NUM * radius
     }
 }
 
