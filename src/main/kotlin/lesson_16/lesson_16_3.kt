@@ -1,12 +1,10 @@
 package org.example.lesson_16
 
 class User(
-    val login: String,
+    private val login: String,
     private val password: String,
 ) {
-    fun validation(password: String): Boolean {
-        return this.password == password
-    }
+    fun validation(password: String): Boolean = this.password == password
 }
 
 fun main() {
