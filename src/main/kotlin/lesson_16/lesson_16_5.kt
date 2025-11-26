@@ -1,9 +1,9 @@
 package org.example.lesson_16
 
 class Player(
-    val name: String,
-    var damage: Int,
-    val maxHP: Int,
+    private val name: String,
+    private var damage: Int,
+    private val maxHP: Int,
 ) {
     private var hp = maxHP
     private var canHeal = true
