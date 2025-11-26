@@ -8,7 +8,7 @@ class Order(
         status = newStatus
     }
 
-    fun callToManager(order: Order, status: String) {
-        order.changeStatus(status)
+    fun callToManager(status: String) {
+        changeStatus(status)
     }
 }
