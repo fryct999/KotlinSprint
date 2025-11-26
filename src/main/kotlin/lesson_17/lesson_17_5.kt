@@ -11,9 +11,7 @@ class User_17_5(
         }
 
     var password: String = password
-        get() {
-            return field.replace(Regex("."), "*")
-        }
+        get() = "*".repeat(field.length)
         set(value) {
             println("You can't replace the password.")
         }
