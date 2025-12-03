@@ -1,6 +1,6 @@
 package org.example.lesson_13
 
-class Contact4(
+class Contact5(
     val phoneNumber: Long,
     val name: String,
     val company: String? = null,
