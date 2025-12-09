@@ -1,14 +1,24 @@
 package org.example.lesson_18
 
-abstract class Dice(protected val face: Int) {
+abstract class Dice() {
+    protected abstract val face: Int
+
     fun getResult(): Int {
         return (0..face).random()
     }
 }
 
-class Dice4() : Dice(4)
-class Dice6() : Dice(6)
-class Dice8() : Dice(8)
+class Dice4() : Dice() {
+    override val face = 4
+}
+
+class Dice6() : Dice() {
+    override val face = 6
+}
+
+class Dice8() : Dice() {
+    override val face = 8
+}
 
 fun main() {
     val dice1 = Dice4()
