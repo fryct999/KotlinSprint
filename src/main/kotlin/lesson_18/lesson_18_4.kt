@@ -1,19 +1,28 @@
 package org.example.lesson_18
 
-class Package(
-    private val height: Int,
-    private val wide: Int,
-) {
-    constructor(size: Int) : this(size, size)
+abstract class Package() {
+    abstract fun getArea(): Int
+}
 
-    fun getArea(): Int {
-        return height * wide
+class CubePackage(private val length: Int) : Package() {
+    override fun getArea(): Int {
+        return 6 * length * length
+    }
+}
+
+class BoxPackage(
+    private val length: Int,
+    private val wide: Int,
+    private val height: Int,
+) : Package() {
+    override fun getArea(): Int {
+        return 2 * (length * wide + wide * height + length * height)
     }
 }
 
 fun main() {
-    val package1 = Package(10, 5)
-    val package2 = Package(6)
+    val package1: Package = BoxPackage(10, 5, 8)
+    val package2: Package = CubePackage(6)
 
     println(package1.getArea())
     println(package2.getArea())
