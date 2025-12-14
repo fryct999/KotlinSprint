@@ -7,7 +7,7 @@ class Player213(
 )
 
 fun Player213.isHealthy(): Boolean {
-    return this.hp == this.maxHp
+    return hp == maxHp
 }
 
 fun main() {
