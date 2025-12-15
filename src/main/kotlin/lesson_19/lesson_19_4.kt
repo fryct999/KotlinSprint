@@ -1,17 +1,9 @@
 package org.example.lesson_19
 
-enum class Ammo {
-    BLUE,
-    GREEN,
-    RED;
-
-    fun getDamage(): Int {
-        return when (this) {
-            BLUE -> 5
-            GREEN -> 10
-            RED -> 20
-        }
-    }
+enum class Ammo(val damage: Int) {
+    BLUE(5),
+    GREEN(10),
+    RED(20);
 }
 
 class Panzer() {
@@ -23,7 +15,7 @@ class Panzer() {
 
     fun shoot() {
         if (loadAmmo == null) println("There was no shot, the tank is not loaded.")
-        else println("The shot inflicted ${loadAmmo!!.getDamage()} points of damage.")
+        else println("The shot inflicted ${loadAmmo!!.damage} points of damage.")
     }
 }
 
